@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice.js';
-import { FaPhoneAlt, FaUserTie } from 'react-icons/fa';
+import { deleteContact } from '../../redux/contactsOps.js';
+import { FaPhoneAlt, FaUserTie, FaTrashAlt } from 'react-icons/fa';
 import css from './Contact.module.css';
 
 const Contact = ({ id, name, number }) => {
@@ -11,17 +11,21 @@ const Contact = ({ id, name, number }) => {
     <li key={id} className={css.userCard}>
       <div>
         <p className={css.cardItem}>
-          <FaUserTie />
+          <FaUserTie color="#dead59" />
           {name}
         </p>
 
         <p className={css.cardItem}>
-          <FaPhoneAlt />
+          <FaPhoneAlt color="#dead59" />
           {number}
         </p>
       </div>
 
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete} className={css.deleteBtn}>
+        <span>
+          <FaTrashAlt color="#1c1c1c" />
+        </span>
+      </button>
     </li>
   );
 };

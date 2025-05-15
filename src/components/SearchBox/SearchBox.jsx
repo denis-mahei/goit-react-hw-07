@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { changeFilter } from '../../redux/filtersSlice.js';
 import { useDispatch } from 'react-redux';
 import { useDebounce } from 'use-debounce';
+import { FaSearch } from 'react-icons/fa';
 import css from './SearchBox.module.css';
 
 const SearchBox = () => {
@@ -15,12 +16,16 @@ const SearchBox = () => {
 
   return (
     <div className={css.searchField}>
-      <label htmlFor="search">Find contacts by name</label>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
+      <div className={css.inputWrapper}>
+        <FaSearch className={css.icon} />
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          className={css.input}
+          placeholder="Search contacts by name..."
+        />
+      </div>
     </div>
   );
 };

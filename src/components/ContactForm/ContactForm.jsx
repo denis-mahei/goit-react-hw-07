@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { addContact } from '../../redux/contactsSlice.js';
+import { addContact } from '../../redux/contactsOps.js';
+import { MdOutlinePersonAddAlt } from 'react-icons/md';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 
@@ -31,37 +32,53 @@ const ContactForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        number: '',
-      }}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form className={css.formContainer}>
-        <div>
-          <label htmlFor="name" className={css.label}>
-            Name
-          </label>
-          <Field className={css.formField} type="text" name="name" id="name" />
-          <ErrorMessage className={css.error} name="name" component="span" />
-        </div>
-        <div>
-          <label htmlFor="number">Number</label>
-          <Field
-            className={css.formField}
-            type="text"
-            name="number"
-            id="number"
-          />
-          <ErrorMessage className={css.error} name="number" component="span" />
-        </div>
-        <button className={css.formBtn} type="submit">
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+    <section>
+      <Formik
+        initialValues={{
+          name: '',
+          number: '',
+        }}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form className={css.formContainer}>
+          <div>
+            <label htmlFor="name" className={css.label}>
+              Name
+            </label>
+            <Field
+              className={css.formField}
+              type="text"
+              name="name"
+              id="name"
+            />
+            <ErrorMessage className={css.error} name="name" component="span" />
+          </div>
+          <div>
+            <label htmlFor="number" className={css.label}>
+              Number
+            </label>
+            <Field
+              className={css.formField}
+              type="text"
+              name="number"
+              id="number"
+            />
+            <ErrorMessage
+              className={css.error}
+              name="number"
+              component="span"
+            />
+          </div>
+          <button className={css.bookmarkBtn} type="submit">
+            <span className={css.iconContainer}>
+              <MdOutlinePersonAddAlt />
+            </span>
+            <p className={css.text}>Add</p>
+          </button>
+        </Form>
+      </Formik>
+    </section>
   );
 };
 export default ContactForm;
