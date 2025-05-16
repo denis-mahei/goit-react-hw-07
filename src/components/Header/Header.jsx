@@ -1,6 +1,6 @@
 import { MdContacts } from 'react-icons/md';
-import css from './Header.module.css';
 import SearchBox from '../SearchBox/SearchBox.jsx';
+import css from './Header.module.css';
 
 const Header = () => {
   return (
