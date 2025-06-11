@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addContact } from '../../redux/contactsOps.js';
-import { MdOutlinePersonAddAlt } from 'react-icons/md';
 import { validationSchema } from '../../utils/validation.js';
+import { MdOutlinePersonAddAlt } from 'react-icons/md';
 
 import css from './ContactForm.module.css';
 
